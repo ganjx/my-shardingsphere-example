@@ -71,7 +71,7 @@ public class OrderServiceImpl implements ExampleService {
 //        orderRepository.dropTable();
 //        orderItemRepository.dropTable();
     }
-    
+
     @Override
     @Transactional
     public void processSuccess() throws SQLException {
