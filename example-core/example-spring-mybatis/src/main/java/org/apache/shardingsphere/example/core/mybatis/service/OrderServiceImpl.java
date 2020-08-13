@@ -78,8 +78,10 @@ public class OrderServiceImpl implements ExampleService {
         System.out.println("-------------- Process Success Begin ---------------");
         List<Long> orderIds = insertData();
         printData();
+
+        // 暂时屏蔽
 //        deleteData(orderIds);
-        printData();
+//        printData();
         System.out.println("-------------- Process Success Finish --------------");
     }
     
