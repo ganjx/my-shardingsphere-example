@@ -38,33 +38,33 @@ import static org.junit.Assert.assertThat;
 @ComponentScan(basePackages = {"org.apache.shardingsphere"})
 @ActiveProfiles("sharding-databases-tables")
 public class XAOrderServiceTest {
-    
+
     @Autowired
     private XAOrderService orderService;
-    
+
     @Before
     public void setUp() {
         orderService.init();
     }
-    
+
     @After
     public void cleanUp() {
         orderService.cleanup();
     }
-    
+
     @Test
     public void assertInsertSuccess() {
         assertThat(orderService.insert(10), is(TransactionType.XA));
         assertThat(orderService.selectAll(), is(10));
     }
-    
+
     @Test
     public void assertInsertFailed() {
         try {
             orderService.insertFailed(10);
-        // CHECKSTYLE:OFF
+            // CHECKSTYLE:OFF
         } catch (final Exception ignore) {
-        // CHECKSTYLE:ON
+            // CHECKSTYLE:ON
         }
         assertThat(orderService.selectAll(), is(0));
     }
