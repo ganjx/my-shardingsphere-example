@@ -60,7 +60,14 @@ public class SeataATOrderServiceTest {
     public void cleanUp() {
         orderService.cleanup();
     }
-    
+
+    /**
+     * 运行前准备
+     * 1、创建 UNDO_LOG 表，可参见resources/sql/undo_log.sql
+     * 2、从 https://github.com/seata/seata/releases下载服务seata-server，
+     *    修改conf/file.conf中的连接池等参数配置，最后启动bin/seata-server.bat/seata-server.sh
+     * 3、启动该测试用例，查看结果
+     */
     @Test
     public void assertInsertSuccess() {
         assertThat(orderService.insert(10), is(TransactionType.BASE));
