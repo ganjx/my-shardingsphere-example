@@ -55,7 +55,7 @@ public class XAOrderService {
      * Clean up.
      */
     void cleanup() {
-//        jdbcTemplate.execute("DROP TABLE IF EXISTS t_order");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS t_order");
     }
     
     /**
